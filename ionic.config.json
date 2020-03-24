@@ -1,7 +1,8 @@
 {
   "name": "project_qr_paiement",
   "integrations": {
-    "capacitor": {}
+    "capacitor": {},
+    "cordova": {}
   },
   "type": "angular"
 }
