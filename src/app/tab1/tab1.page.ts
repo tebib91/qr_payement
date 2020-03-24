@@ -20,11 +20,24 @@ export class Tab1Page {
   scanCode() {
     this.barcodeScanner.scan().then(
       barcodeData => {
-        this.scannedCode = barcodeData;
+        this.scannedCode = barcodeData.text;
       }
-    )
+    );
   }
   downloadQR() {
+    const canvas = document.querySelector('canvas') as HTMLCanvasElement;
+    const imageData = canvas.toDataURL('image/jpeg').toString();
+    console.log('data', imageData);
+    const data = imageData.split(',')[1];
 
+    this.base64ToGallery.base64ToGallery(data,
+      { prefix: '_img', mediaScanner: true })
+        .then(async res => {
+          const toast = await this.toastCtrl.create({
+            header: 'QR Code saved in your Photolibrary'
+          });
+        }, err => console.log('err: ', err)
+
+        );
   }
 }
