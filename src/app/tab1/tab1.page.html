@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 1
+      Payment
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,7 +9,8 @@
 <ion-content [fullscreen]="true">
 
   <ion-item>
-    <ion-input type="text" placeholder="MY QR Code data" [(ngModel)]="qrData"></ion-input>
+    <ion-input class="input" type="number" placeholder="MY QR Code data" [(ngModel)]="qrData"></ion-input>
+    <span>DT</span>
   </ion-item>
 
 
@@ -30,8 +31,8 @@
     <ion-icon slot="start" name="qr-scanner"></ion-icon>
     Scan Code
   </ion-button>
-  <ion-card *ngIf="qrData" text-center>
-    <ngx-qrcode [qrc-element-type]="elementType" [qrc-value]="qrData">
+  <ion-card *ngIf="qrData" class="text-center">
+    <ngx-qrcode [qrc-element-type]="elementType" [qrc-value]="qrData.toString()">
     </ngx-qrcode>
     <ion-card-content>
       <ion-button expand="full" color="tertiary" (click)="downloadQR()" *ngIf="elementType === 'canvas'">

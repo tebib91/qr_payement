@@ -8,6 +8,7 @@ import { ExploreContainerComponentModule } from '../explore-container/explore-co
 import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 import { Base64ToGallery } from '@ionic-native/base64-to-gallery/ngx';
 import { NgxQRCodeModule } from 'ngx-qrcode2';
+import {Tab1PageRoutingModule} from './tab1-routing.module';
 
 @NgModule({
   imports: [
@@ -16,7 +17,7 @@ import { NgxQRCodeModule } from 'ngx-qrcode2';
     FormsModule,
     NgxQRCodeModule,
     ExploreContainerComponentModule,
-    RouterModule.forChild([{ path: '', component: Tab1Page }])
+    Tab1PageRoutingModule
   ],
   providers: [ BarcodeScanner,
     Base64ToGallery],
